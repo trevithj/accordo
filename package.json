@@ -1,0 +1,19 @@
+{
+  "name": "bus-sim",
+  "version": "1.0.0",
+  "description": "Console-based simulator to move a bus around a carpark",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trevithj/accordo"
+  },
+  "keywords": [],
+  "author": "John Trevithick",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  }
+}
