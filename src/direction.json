@@ -1,0 +1,14 @@
+{
+	"NORTH": {
+		"dx":0, "dy": 1, "left":"WEST", "right":"EAST"
+	},
+	"SOUTH": {
+		"dx":0, "dy":-1, "left":"EAST", "right":"WEST"
+	},
+	"EAST": {
+		"dx": 1, "dy":0, "left":"NORTH", "right":"SOUTH"
+	},
+	"WEST": {
+		"dx":-1, "dy":0, "left":"SOUTH", "right":"NORTH"
+	}
+}
