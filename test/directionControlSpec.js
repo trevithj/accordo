@@ -1,18 +1,18 @@
-var assert = require('chai').assert;
+var expect = require('chai').expect;
 var dc = require('../src/direction-control.js');
 var dir = ["NORTH","SOUTH","EAST","WEST"];
 
 describe('Direction control', function() {
 	describe('#turnLeft', function() {
 		it('should return correct new direction', function() {
-			assert.isOk("WEST"==dc.turnLeft("NORTH"), "Should be facing west!");
-			assert.isOk("EAST"==dc.turnLeft("SOUTH"), "Should be facing east!");
+			expect(dc.turnLeft("NORTH")).to.equal("WEST");
+			expect(dc.turnLeft("SOUTH")).to.equal("EAST");
 		});
 	});
 	describe('#turnRight', function() {
 		it('should return correct new direction', function() {
-			assert.isOk("EAST"==dc.turnRight("NORTH"), "Should be facing east!");
-			assert.isOk("WEST"==dc.turnRight("SOUTH"), "Should be facing west!");
+			expect(dc.turnRight("WEST")).to.equal("NORTH");
+			expect(dc.turnRight("EAST")).to.equal("SOUTH");
 		});
 	});
 	describe('#doMove', function() {
@@ -20,8 +20,9 @@ describe('Direction control', function() {
 			var pos = {'x':0, 'y':0};
 			pos = dc.doMove("NORTH", pos);
 			pos = dc.doMove("EAST", pos);
-			assert.isOk(pos.x===1, "Didn't move east!");
-			assert.isOk(pos.y===1, "Didn't move north!");
+			pos = dc.doMove("NORTH", pos);
+			expect(pos.x).to.equal(1);
+			expect(pos.y).to.equal(2);
 		});
 	});
 });
