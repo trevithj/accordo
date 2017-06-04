@@ -2,7 +2,7 @@
   "name": "bus-sim",
   "version": "1.0.0",
   "description": "Console-based simulator to move a bus around a carpark",
-  "main": "src/index.js",
+  "main": "src/bus-sim/index.js",
   "scripts": {
     "test": "mocha -w"
   },

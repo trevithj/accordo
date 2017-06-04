@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var pc = require('../src/park-control.js');
+var pc = require('../src/bus-sim/park-control');
 
 describe('Parking space control', function() {
 	describe('#checkPos', function() {
@@ -16,6 +16,17 @@ describe('Parking space control', function() {
 			pos = pc.checkPos(pos);
 			expect(pos.x+1).to.equal(6);
 			expect(pos.y+1).to.equal(7);
+		});
+	});
+	describe('#isValidPos', function() {
+		it('should flag when pos is outside the park', function() {
+			pc.setSize(30,30);
+			expect(pc.isValidPos({x:20, y:20})).to.be.true;
+			pc.setSize(3,3);
+			expect(pc.isValidPos({x:20, y:20})).to.be.false;
+			expect(pc.isValidPos({x:2, y:20})).to.be.false;
+			expect(pc.isValidPos({x:2, y:1})).to.be.true;
+			expect(pc.isValidPos({x:20, y:1})).to.be.false;
 		});
 	});
 });

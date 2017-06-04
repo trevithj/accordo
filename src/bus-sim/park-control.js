@@ -15,5 +15,12 @@ module.exports = {
 		pos.y = Math.max(y1, pos.y);
 		pos.y = Math.min(y2, pos.y);
 		return pos;
+	},
+	isValidPos: (pos) => {
+		if(pos.x < x1) return false;
+		if(pos.y < y1) return false;
+		if(pos.x > x2) return false;
+		if(pos.y > y2) return false;
+		return true;
 	}
 }

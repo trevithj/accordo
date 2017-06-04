@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var dc = require('../src/direction-control.js');
+var dc = require('../src/bus-sim/direction-control');
 var dir = ["NORTH","SOUTH","EAST","WEST"];
 
 describe('Direction control', function() {
