@@ -5,28 +5,31 @@ const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout
 });
-var log = [];
 
 rl.prompt();
 
 rl.on('line', (line) => {
 	line = line.trim().toUpperCase();
+	var res;
 	if(line.startsWith("PLACE ") ) {
-		var res = cp.place(line.substr(6));
+		res = cp.place(line.substr(6));
 		if(res===false) {
-			log.push(`Invalid: ${line}`);
+			console.log(`Invalid: ${line}`);
 		}
 		rl.prompt();
 	} else if(line=="QUIT") {
 		rl.close();
 	} else {
-		log.push(cp.process(line));
+		res = cp.process(line);
+		if(line==="REPORT") {
+			var loc = res.pos;
+			console.log(`Location:(${loc.x},${loc.y}) facing ${res.dir}`);
+		}
 		rl.prompt();
 	}
 });
 
 rl.on('close', () => {
 	console.log('Finished.');
-	console.log(log.join("\n"));
 	process.exit(0);
 });

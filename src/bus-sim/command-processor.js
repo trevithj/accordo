@@ -25,11 +25,11 @@ const doMove = () => {
 
 module.exports = {
 	process: (cmd) => {
+		cmd = cmd.trim().toLowerCase();
 		if(pc.isValidPos(theBus.pos)===false) {
-			return null;
+			return (cmd=="report") ? theBus : null;
 		}//ignore
 
-		cmd = cmd.trim().toLowerCase();
 		switch(cmd) {
 			case "move":
 				doMove();

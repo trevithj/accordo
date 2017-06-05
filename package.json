@@ -4,7 +4,9 @@
   "description": "Console-based simulator to move a bus around a carpark",
   "main": "src/bus-sim/index.js",
   "scripts": {
-    "test": "mocha -w"
+    "test": "mocha -w",
+    "bus-sim": "node src/bus-sim",
+    "bus-sim-test": "node src/bus-sim < src/bus-sim/test-input.txt"
   },
   "repository": {
     "type": "git",
